@@ -1,5 +1,6 @@
 package jay.chis.portfolio.cashflow.tracker.feature.user.application
 
+import jakarta.transaction.Transactional
 import jay.chis.portfolio.cashflow.tracker.feature.user.adapter.out.persistence.UserRepositoryAdapter
 import jay.chis.portfolio.cashflow.tracker.feature.user.domain.User
 import jay.chis.portfolio.cashflow.tracker.feature.user.domain.UserId
