@@ -1,0 +1,85 @@
+spring:
+  application:
+    name: stamp
+  profiles:
+    default: local
+  datasource:
+    #    driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
+    #    url: "jdbc:mariadb://localhost:3306/stamp"
+    url: jdbc:postgresql://localhost:5432/postgres
+    #    username: admin
+    username: postgres
+    #    password: qwer1234
+    password: 123456
+    hikari:
+      maximum-pool-size: 4   # **8 → 4 정도로 줄이기**
+      minimum-idle: 1
+      connection-timeout: 30000      # 30s
+      validation-timeout: 5000
+      idle-timeout: 600000           # 10m
+      max-lifetime: 1800000          # 30m
+      connection-test-query: SELECT 1
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        format_sql: true
+
+server:
+  port: 8089
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
+
+jwt:
+  secret: vY3ZvAT2GZwhPWy/ywl3xl3Nd/RYJwLQ+C/CQ9H2K4u2QGlS9Qk5MwKgJEQwT4BIlQxGmR8wdb6AlJRTYkokjQ==
+  access-token-minutes: 30
+  refresh-token-days: 7
+
+---
+# ===== local 프로필 =====
+spring:
+  config:
+    activate:
+      on-profile: local
+
+management:
+  tracing:
+    enabled: false
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
+
+---
+# ===== stage 프로필 =====
+spring:
+  config:
+    activate:
+      on-profile: stage
+
+management:
+  tracing:
+    sampling:
+      probability: 0.1
+
+---
+# ===== prod 프로필 =====
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+management:
+  tracing:
+    sampling:
+      probability: 0.05
