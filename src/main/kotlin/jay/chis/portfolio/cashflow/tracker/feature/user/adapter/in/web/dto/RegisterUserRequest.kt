@@ -8,7 +8,9 @@ data class RegisterUserRequest(
     @field:NotBlank
     val email: String,
 
-    val nickname: String? = null,
+    @field:NotBlank
+    val nickname: String,
 
+    @field:NotBlank
     val password: String
 )

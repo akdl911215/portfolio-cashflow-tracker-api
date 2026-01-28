@@ -18,8 +18,8 @@ class UserJpaEntity(
     @Column(nullable = false, length = 255)
     val email: String,
 
-    @Column(nullable = true, length = 60)
-    val nickname: String? = null,
+    @Column(nullable = false, length = 60)
+    val nickname: String,
 
     @Column(nullable = false, length = 255)
     val password: String
