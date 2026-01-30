@@ -11,16 +11,17 @@ import java.util.UUID
     ]
 )
 class UserJpaEntity(
+
     @Id
     @Column(columnDefinition = "uuid")
-    val id: UUID,
+    var id: UUID = UUID.randomUUID(),
 
     @Column(nullable = false, length = 255)
-    val email: String,
+    var email: String = "",
 
     @Column(nullable = false, length = 60)
-    val nickname: String,
+    var nickname: String = "",
 
     @Column(nullable = false, length = 255)
-    val password: String
+    var password: String = ""
 )
