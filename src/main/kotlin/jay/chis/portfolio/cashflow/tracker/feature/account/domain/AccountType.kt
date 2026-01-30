@@ -1,4 +1,7 @@
 package jay.chis.portfolio.cashflow.tracker.feature.account.domain
 
-class AccountType {
+enum class AccountType {
+    BROKERAGE,
+    BANK,
+    CASH
 }

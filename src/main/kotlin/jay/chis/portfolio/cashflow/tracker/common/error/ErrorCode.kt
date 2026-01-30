@@ -10,10 +10,13 @@ enum class ErrorCode(
     DUPLICATE_EMAIL(HttpStatus.CONFLICT, "Email already exists."),
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "User not found."),
 
+    // Account
+    ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "Account not found."),
+
     // Validation / Request
     INVALID_REQUEST(HttpStatus.BAD_REQUEST, "Invalid request."),
-    VALIDATION_FAILED(HttpStatus.BAD_REQUEST, "Validation failed."),
 
+    VALIDATION_FAILED(HttpStatus.BAD_REQUEST, "Validation failed."),
     // System
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
 }
