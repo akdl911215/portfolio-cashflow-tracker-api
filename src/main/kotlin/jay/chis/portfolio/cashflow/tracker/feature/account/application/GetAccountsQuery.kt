@@ -4,9 +4,7 @@ import jay.chis.portfolio.cashflow.tracker.common.error.BusinessException
 import jay.chis.portfolio.cashflow.tracker.common.error.ErrorCode
 import jay.chis.portfolio.cashflow.tracker.feature.account.adapter.out.persistence.AccountJpaRepository
 import jay.chis.portfolio.cashflow.tracker.feature.account.domain.Account
-import jay.chis.portfolio.cashflow.tracker.feature.account.port.out.AccountRepository
 import jay.chis.portfolio.cashflow.tracker.feature.user.adapter.out.persistence.UserJpaRepository
-import jay.chis.portfolio.cashflow.tracker.feature.user.port.out.UserRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.UUID

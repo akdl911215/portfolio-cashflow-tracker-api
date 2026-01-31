@@ -7,7 +7,5 @@ import java.util.UUID
 interface AccountJpaRepository: JpaRepository<AccountJpaEntity, UUID> {
     fun save(account: Account): Account
     fun findAllByUserId(userId: UUID): List<Account>
-    fun findById(accountId: UUID): Account?
     fun existsByIdAndUserId(accountId: UUID, userId: UUID): Boolean
-    fun deleteById(accountId: UUID)
 }

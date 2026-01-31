@@ -15,18 +15,20 @@ class UpdateAccountUseCase(
 ) {
     @Transactional
     fun update(userId: UUID, accountId: UUID, name: String, type: AccountType): Account {
-        if (!accountRepository.existsByIdAndUserId(accountId, userId)) {
+        val entity = accountRepository.findById(accountId)
+            .orElseThrow {
+                BusinessException(ErrorCode.ACCOUNT_NOT_FOUND, "Account not found: $accountId")
+            }
+
+        if (entity.userId != userId) {
             throw BusinessException(ErrorCode.ACCOUNT_NOT_FOUND, "Account not found: $accountId")
         }
 
-        val existing = accountRepository.findById(accountId)
-            ?: throw BusinessException(ErrorCode.ACCOUNT_NOT_FOUND, "Account not found: $accountId")
+        entity.name = name.trim()
+        entity.type = type
 
-        val updated = existing.copy(
-            name = name.trim(),
-            type = type
-        )
+        val saved = accountRepository.save(entity)
 
-        return accountRepository.save(updated)
+        return saved.toDomain()
     }
 }
