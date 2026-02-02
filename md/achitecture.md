@@ -4,7 +4,7 @@ portfolio-cashflow-tracker-api/
 └─ src/
 ├─ main/
 │  ├─ kotlin/
-│  │  └─ com/yourname/portfolio/
+│  │  └─ jay.chis.portfolio.cashflow.tracker/
 │  │     ├─ PortfolioApplication.kt
 │  │     ├─ config/
 │  │     │  ├─ JacksonConfig.kt

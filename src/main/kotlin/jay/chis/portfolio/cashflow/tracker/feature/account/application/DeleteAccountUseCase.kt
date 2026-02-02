@@ -14,7 +14,6 @@ class DeleteAccountUseCase(
 
     @Transactional
     fun delete(userId: UUID, accountId: UUID) {
-        // 1) Check "account belongs to user"
         val exists = accountRepository.existsByIdAndUserId(accountId, userId)
         if (!exists) {
             throw BusinessException(
@@ -23,7 +22,6 @@ class DeleteAccountUseCase(
             )
         }
 
-        // 2) Delete
         accountRepository.deleteById(accountId)
     }
 }
