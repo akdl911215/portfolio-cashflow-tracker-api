@@ -1,6 +1,6 @@
 spring:
   application:
-    name: stamp
+    name: portfolio-cashflow-tracker
   profiles:
     default: local
   datasource:
