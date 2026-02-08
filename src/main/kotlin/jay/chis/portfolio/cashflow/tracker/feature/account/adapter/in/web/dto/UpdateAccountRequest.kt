@@ -1,11 +1,13 @@
 package jay.chis.portfolio.cashflow.tracker.feature.account.adapter.`in`.web.dto
 
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Size
 import jay.chis.portfolio.cashflow.tracker.feature.account.domain.AccountType
-import java.util.UUID
 
-data class AccountResponse(
-    val id: UUID,
-    val userId: UUID,
+data class UpdateAccountRequest(
+    @field:NotBlank
+    @field:Size(max = 100)
     val name: String,
+
     val type: AccountType
 )
