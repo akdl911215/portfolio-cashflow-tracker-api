@@ -13,10 +13,18 @@ enum class ErrorCode(
     // Account
     ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "Account not found."),
 
+    // Asset
+    ASSET_NOT_FOUND(HttpStatus.NOT_FOUND, "Asset not found."),
+
+    // Common domain errors
+    DUPLICATE_RESOURCE(HttpStatus.CONFLICT, "Resource already exists."),
+    INVALID_INPUT(HttpStatus.BAD_REQUEST, "Invalid input."),
+
     // Validation / Request
     INVALID_REQUEST(HttpStatus.BAD_REQUEST, "Invalid request."),
-
     VALIDATION_FAILED(HttpStatus.BAD_REQUEST, "Validation failed."),
+
     // System
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error.");
 }
+
