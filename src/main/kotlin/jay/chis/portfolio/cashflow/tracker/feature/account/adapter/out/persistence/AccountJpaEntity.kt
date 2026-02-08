@@ -1,7 +1,6 @@
 package jay.chis.portfolio.cashflow.tracker.feature.account.adapter.out.persistence
 
 import jakarta.persistence.*
-import jay.chis.portfolio.cashflow.tracker.feature.account.domain.Account
 import jay.chis.portfolio.cashflow.tracker.feature.account.domain.AccountType
 import java.util.UUID
 
@@ -27,23 +26,4 @@ class AccountJpaEntity(
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
     var type: AccountType = AccountType.BROKERAGE
-) {
-
-    fun toDomain(): Account =
-        Account(
-            id = id,
-            userId = userId,
-            name = name,
-            type = type
-        )
-
-    companion object {
-        fun from(domain: Account): AccountJpaEntity =
-            AccountJpaEntity(
-                id = domain.id,
-                userId = domain.userId,
-                name = domain.name,
-                type = domain.type
-            )
-    }
-}
+)
